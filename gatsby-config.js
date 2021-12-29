@@ -5,22 +5,23 @@ module.exports = {
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
-  plugins: [
-    'gatsby-source-wordpress', {
-      resolve: `gatsby-source-wordpress`,
-      options: {
-        // Specify the URL of the WordPress source
-        baseUrl: `trisec.io`,
-        protocol: `https`,
-        // Indicates if a site is hosted on WordPress.com
-        hostingWPCOM: false,
-        // Specify which URL structures to fetch
-        includedRoutes: [
-          '**/posts',
-          '**/tags',
-          '**/categories'
-        ]
-      }}
+  plugins: [{
+    resolve: `gatsby-source-wordpress`,
+    options: {
+      // Specify the URL of the WordPress source
+      url: 'https://trisec.io/graphql',
+      baseUrl: `trisec.io`,
+      protocol: `https`,
+      // Indicates if a site is hosted on WordPress.com
+      hostingWPCOM: false,
+      // Specify which URL structures to fetch
+      includedRoutes: [
+        '**/posts',
+        '**/tags',
+        '**/categories'
+      ]
+    }
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
@@ -46,7 +47,6 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
